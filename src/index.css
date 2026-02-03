@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+:root {
+  --bg-global: #121212;
+  --text-primary: #ffffff;
+  --font-family: 'Poppins', sans-serif;
+  --bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-global);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Global Header --- */
+.app-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Theme Scoping --- */
+/* Base Variables for Themes (Default to Party) */
+.event-card {
+  --bg-card: #16213e;
+  --text-main: #ffffff;
+  --text-sub: #a9a9b3;
+  --accent-1: #e94560;
+  --accent-2: #4ecca3;
+
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s var(--bounce);
+  height: 100%;
+  border: 2px solid transparent;
+}
+
+/* Theme Overrides */
+.event-card.theme-party {
+  --bg-card: #16213e;
+  --accent-1: #e94560;
+  --accent-2: #fcd34d;
+}
+
+.event-card.theme-launch {
+  --bg-card: #0f0f2d;
+  --accent-1: #00f3ff;
+  --accent-2: #bd00ff;
+  --text-sub: #5b6b8c;
+}
+
+.event-card.theme-holiday {
+  --bg-card: #4a0404;
+  --accent-1: #00ff22;
+  --accent-2: #ff0000;
+  --text-sub: #ffbaba;
+}
+
+.event-card.theme-nature {
+  --bg-card: #143614;
+  --accent-1: #4eff7b;
+  --accent-2: #f0e68c;
+  --text-sub: #a3cfa3;
+}
+
+.event-card.theme-gaming {
+  --bg-card: #0f172a;
+  --accent-1: #39ff14;
+  /* Neon Green */
+  --accent-2: #d946ef;
+  /* Magenta */
+  --text-sub: #94a3b8;
+  font-family: 'Courier New', monospace;
+  /* Tech feel */
+}
+
+.event-card.theme-wedding {
+  --bg-card: #fff0f5;
+  /* Lavender Blush */
+  --text-main: #4a4a4a;
+  --accent-1: #d4af37;
+  /* Gold */
+  --accent-2: #ff69b4;
+  /* Hot Pink */
+  --text-sub: #8b8b8b;
+}
+
+.event-card.theme-travel {
+  --bg-card: #e0f7fa;
+  /* Light Cyan */
+  --text-main: #006064;
+  --accent-1: #00bcd4;
+  /* Cyan */
+  --accent-2: #ffeb3b;
+  /* Yellow */
+  --text-sub: #00838f;
+}
+
+.event-card.theme-sport {
+  --bg-card: #1a1a1a;
+  --accent-1: #ff4500;
+  /* Orange Red */
+  --accent-2: #00bfff;
+  /* Deep Sky Blue */
+  --text-sub: #a0a0a0;
+  font-style: italic;
+  /* Dynamic feel */
+}
+
+.event-card.theme-study {
+  --bg-card: #f8fafc;
+  --text-main: #334155;
+  --accent-1: #3b82f6;
+  /* Blue */
+  --accent-2: #64748b;
+  /* Slate */
+  --text-sub: #94a3b8;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-1);
+}
+
+/* --- Card Content --- */
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.card-bio {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+}
+
+/* Countdown Grid in Card */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.grid-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.grid-val {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.grid-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-top: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* Buttons */
+.btn-delete {
+  background: transparent;
+  color: var(--text-sub);
+  border: 1px solid var(--text-sub);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn-delete:hover {
+  border-color: var(--accent-1);
+  color: var(--accent-1);
+}
+
+/* --- Input Form Form Styles (Reusing some globals) --- */
+.input-page {
+  width: 100%;
+  max-width: 600px;
+}
+
+.input-container {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Reusing previous input styles but ensuring they work on dark bg */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #e94560;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background: #e94560;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.add-card {
+  border: 2px dashed #333;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: rgba(255, 255, 255, 0.02);
+  color: #888;
+}
+
+.add-card:hover {
+  border-color: #666;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
